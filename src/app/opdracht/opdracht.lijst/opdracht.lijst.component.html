@@ -1,0 +1,19 @@
+<p>opdracht.lijst works!</p>
+
+<table class="table table-striped">
+<thead>
+<tr>
+  <th>Id</th>
+  <th>Naam</th>
+  <th>Belangrijkheid</th>
+</tr>
+</thead>
+<tbody>
+<tr *ngFor="let opdracht of opdrachten">
+  <td>{{opdracht.id}}</td>
+  <td>{{opdracht.naam}}</td>
+  <td>{{opdracht.belangrijkheid}}</td>
+
+</tr>
+</tbody>
+</table>
