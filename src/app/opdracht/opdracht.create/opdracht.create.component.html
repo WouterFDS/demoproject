@@ -1,0 +1,18 @@
+<p>opdracht.create works!</p>
+<form [formGroup]="opdrachtFormulier
+    " (ngSubmit)="onSubmit()">
+
+  <div class ="form-group">
+    <label for="naam">Naam opdracht:</label>
+    <input type="text" class="form-control" formControlName="naam" id="naam" autocomplete="off">
+    <div class="error" *ngIf="opdrachtFormulier.controls['naam'].hasError('required')&&opdrachtFormulier.controls['naam'].touched">Gelieve een naam in te vullen</div>
+  </div>
+  <div class ="form-group">
+    <label for="belangrijkheid">belangrijkheid:</label>
+    <input type="number" min="1" max="10" class="form-control" formControlName="belangrijkheid" id="belangrijkheid" autocomplete="off">
+    <div class="error" *ngIf="opdrachtFormulier.controls['belangrijkheid'].hasError('required')&&opdrachtFormulier.controls['belangrijkheid'].touched">Gelieve een belangrijkheidwaarde toe te voegen</div>
+  </div>
+  <button class="btn btn-success" [disabled]="opdrachtFormulier.invalid">Create</button>
+
+</form>
+

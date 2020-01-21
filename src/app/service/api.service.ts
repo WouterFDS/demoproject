@@ -19,5 +19,9 @@ export class ApiService {
     return this.http.post<ApiResponse>('http://localhost:8080/opdracht/lijst',"");
   }
 
+  maakOpdracht(opdrachtDetails):  Observable<ApiResponse> {
+    return this.http.post<ApiResponse>('http://localhost:8080/opdracht/maak',opdrachtDetails);
+  }
+
 }
 

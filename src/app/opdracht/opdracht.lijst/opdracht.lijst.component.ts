@@ -25,4 +25,7 @@ export class OpdrachtLijstComponent implements OnInit {
     });
   }
 
+  maakOpdracht() {
+    this.router.navigate(['maak'])
+  }
 }
