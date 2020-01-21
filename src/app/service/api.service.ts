@@ -23,5 +23,9 @@ export class ApiService {
     return this.http.post<ApiResponse>('http://localhost:8080/opdracht/maak',opdrachtDetails);
   }
 
+  verwijder(opdracht): Observable<ApiResponse> {
+    return this.http.post<ApiResponse>('http://localhost:8080/opdracht/verwijder',opdracht);
+  }
+
 }
 

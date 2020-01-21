@@ -28,4 +28,14 @@ export class OpdrachtLijstComponent implements OnInit {
   maakOpdracht() {
     this.router.navigate(['maak'])
   }
+
+  verwijder(opdracht: Opdracht) {
+    this.apiService.verwijder(opdracht).subscribe(info => {
+      if (info.status === 200) {
+        this.opdrachten = info.resultaat;
+      } else {
+
+      }
+    });
+  }
 }

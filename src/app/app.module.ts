@@ -9,7 +9,6 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { OpdrachtLijstComponent } from './opdracht/opdracht.lijst/opdracht.lijst.component';
 import { OpdrachtEditComponent } from './opdracht/opdracht.edit/opdracht.edit.component';
 import { OpdrachtCreateComponent } from './opdracht/opdracht.create/opdracht.create.component';
-import { OpdrachtDeleteComponent } from './opdracht/opdracht.delete/opdracht.delete.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,7 @@ import { OpdrachtDeleteComponent } from './opdracht/opdracht.delete/opdracht.del
     OpdrachtLijstComponent,
     OpdrachtEditComponent,
     OpdrachtCreateComponent,
-    OpdrachtDeleteComponent
+
   ],
   imports: [
     BrowserModule,

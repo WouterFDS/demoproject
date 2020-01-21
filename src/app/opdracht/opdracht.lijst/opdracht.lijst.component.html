@@ -6,6 +6,7 @@
   <th>Id</th>
   <th>Naam</th>
   <th>Belangrijkheid</th>
+  <th></th>
 </tr>
 </thead>
 <tbody>
@@ -13,7 +14,7 @@
   <td>{{opdracht.id}}</td>
   <td>{{opdracht.naam}}</td>
   <td>{{opdracht.belangrijkheid}}</td>
-
+  <td><button class="btn btn-success" (click)="verwijder(opdracht)" style="margin-left: 20px;"> Verwijder</button></td>
 </tr>
 </tbody>
 </table>
