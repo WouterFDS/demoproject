@@ -3,15 +3,15 @@
 <table class="table table-striped">
 <thead>
 <tr>
-  <th>Id</th>
-  <th>Naam</th>
-  <th>Belangrijkheid</th>
+  <th (click)="veranderSortMethod('id');updateList();" onmouseover="" style="cursor: pointer;">Id</th>
+  <th (click)="veranderSortMethod('naam');updateList();" onmouseover="" style="cursor: pointer;">Naam</th>
+  <th (click)="veranderSortMethod('belangrijkheid');updateList();" onmouseover="" style="cursor: pointer;">Belangrijkheid</th>
   <th></th>
   <th></th>
 </tr>
 </thead>
 <tbody>
-<tr *ngFor="let opdracht of opdrachten ">
+<tr *ngFor="let opdracht of opdrachten">
   <td>{{opdracht.id}}</td>
   <td>{{opdracht.naam}}</td>
   <td>{{opdracht.belangrijkheid}}</td>
