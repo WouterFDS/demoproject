@@ -26,7 +26,7 @@ export class OpdrachtLijstComponent implements OnInit {
   }
 
   maakOpdracht() {
-    this.router.navigate(['maak'])
+    this.router.navigate(['maak']);
   }
 
   verwijder(opdracht: Opdracht) {
@@ -37,5 +37,9 @@ export class OpdrachtLijstComponent implements OnInit {
 
       }
     });
+  }
+
+  wijzig(opdracht: Opdracht) {
+    this.router.navigate(['wijzig'],{state:{opdracht: opdracht}});
   }
 }
