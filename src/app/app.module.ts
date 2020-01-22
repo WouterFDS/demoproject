@@ -7,7 +7,6 @@ import {routing} from './app.routing';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { OpdrachtLijstComponent } from './opdracht/opdracht.lijst/opdracht.lijst.component';
-import { OpdrachtEditComponent } from './opdracht/opdracht.edit/opdracht.edit.component';
 import { OpdrachtCreateComponent } from './opdracht/opdracht.create/opdracht.create.component';
 
 @NgModule({
@@ -15,7 +14,6 @@ import { OpdrachtCreateComponent } from './opdracht/opdracht.create/opdracht.cre
     AppComponent,
     LoginComponent,
     OpdrachtLijstComponent,
-    OpdrachtEditComponent,
     OpdrachtCreateComponent,
 
   ],

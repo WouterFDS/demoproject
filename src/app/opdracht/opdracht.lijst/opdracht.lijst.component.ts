@@ -40,6 +40,6 @@ export class OpdrachtLijstComponent implements OnInit {
   }
 
   wijzig(opdracht: Opdracht) {
-    this.router.navigate(['wijzig'],{state:{opdracht: opdracht}});
+    this.router.navigate(['maak'],{state:{opdracht: opdracht}});
   }
 }
