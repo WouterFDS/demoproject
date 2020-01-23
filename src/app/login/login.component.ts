@@ -41,11 +41,17 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    window.localStorage.removeItem('token');
-    this.loginFormulier = this.formBuilder.group({
-      naam: ['', Validators.compose([Validators.required])],
-      wachtwoord: ['', Validators.required]
-    });
+    if(window.localStorage.getItem('token')){
+      this.router.navigate(['lijst'])
+    }
+    else {
+      window.localStorage.removeItem('token');
+      this.loginFormulier = this.formBuilder.group({
+        naam: ['', Validators.compose([Validators.required])],
+        wachtwoord: ['', Validators.required]
+      });
+    }
+
   }
 
 

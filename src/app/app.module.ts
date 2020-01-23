@@ -9,6 +9,7 @@ import { OpdrachtLijstComponent } from './opdracht/opdracht.lijst/opdracht.lijst
 import { OpdrachtCreateComponent } from './opdracht/opdracht.create/opdracht.create.component';
 import {ApiService} from './service/api.service';
 import {TokenInterceptor} from './core/interceptor';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import {TokenInterceptor} from './core/interceptor';
     LoginComponent,
     OpdrachtLijstComponent,
     OpdrachtCreateComponent,
+    HeaderComponent,
 
   ],
   imports: [
@@ -27,6 +29,8 @@ import {TokenInterceptor} from './core/interceptor';
   providers: [ApiService, {provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptor,
     multi : true}],
-  bootstrap: [AppComponent]
+  bootstrap: [
+    AppComponent,
+  ]
 })
 export class AppModule { }
