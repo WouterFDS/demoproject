@@ -26,11 +26,15 @@ export class OpdrachtCreateComponent implements OnInit {
     }
     this.opdrachtFormulier = this.formBuilder.group({
       naam: [opdrachtNaam, [Validators.required]],
-      belangrijkheid: [opdrachtBelang, Validators.required]
+      belangrijkheid: [opdrachtBelang, [Validators.required,Validators.min(1),Validators.max(10)]]
     });
   }
 
   ngOnInit() {
+    if (!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
 
   }
 

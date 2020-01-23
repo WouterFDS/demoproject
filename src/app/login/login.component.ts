@@ -30,6 +30,7 @@ export class LoginComponent implements OnInit {
             this.fouteGegevens = true;
           }
           else{
+            window.localStorage.setItem('token', info.resultaat.token);
             this.router.navigate(['lijst'])
           }
         } else {
@@ -40,6 +41,7 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.localStorage.removeItem('token');
     this.loginFormulier = this.formBuilder.group({
       naam: ['', Validators.compose([Validators.required])],
       wachtwoord: ['', Validators.required]

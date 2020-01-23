@@ -7,6 +7,8 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { OpdrachtLijstComponent } from './opdracht/opdracht.lijst/opdracht.lijst.component';
 import { OpdrachtCreateComponent } from './opdracht/opdracht.create/opdracht.create.component';
+import {ApiService} from './service/api.service';
+import {TokenInterceptor} from './core/interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { OpdrachtCreateComponent } from './opdracht/opdracht.create/opdracht.cre
     routing,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ApiService, {provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptor,
+    multi : true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

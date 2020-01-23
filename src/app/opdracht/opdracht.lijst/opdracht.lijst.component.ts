@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../../service/api.service';
 import {Opdracht} from '../../domain/opdracht.domain';
@@ -18,6 +17,10 @@ export class OpdrachtLijstComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService) { }
 
   ngOnInit() {
+    if (!window.localStorage.getItem('token')) {
+      this.router.navigate(['login']);
+      return;
+    }
     this.richting=1;
     this.sortMethod='id';
     this.apiService.getOpdrachten().subscribe(info => {
