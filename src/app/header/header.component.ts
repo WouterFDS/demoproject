@@ -5,6 +5,7 @@ import {filter} from 'rxjs/operators';
 import {logger} from 'codelyzer/util/logger';
 
 
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -21,9 +22,11 @@ export class HeaderComponent implements OnInit {
     ).subscribe(e => {
       this.checkLogIn();
     });
+
   }
 
   ngOnInit() {
+
   }
 
   checkLogIn(){

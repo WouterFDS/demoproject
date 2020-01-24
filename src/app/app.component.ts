@@ -1,4 +1,4 @@
-import {Component, Injectable} from '@angular/core';
+import {Component, HostListener, Injectable} from '@angular/core';
 import {Subject} from 'rxjs';
 
 @Component({
@@ -9,4 +9,7 @@ import {Subject} from 'rxjs';
 
 export class AppComponent {
   title = 'Startpagina';
+
+
+
 }
