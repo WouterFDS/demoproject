@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../../service/api.service';
+import {Gebruiker} from '../../domain/gebruiker.domain';
 
 @Component({
   selector: 'app-opdracht.create',
@@ -33,6 +34,10 @@ export class OpdrachtCreateComponent implements OnInit {
   ngOnInit() {
     if (!window.localStorage.getItem('token')) {
       this.router.navigate(['login']);
+      return;
+    }
+    if (window.localStorage.getItem('isAdmin')==='false') {
+      this.router.navigate(['lijst']);
       return;
     }
 

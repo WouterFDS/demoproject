@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {ApiService} from '../../service/api.service';
 import {Opdracht} from '../../domain/opdracht.domain';
+import {Gebruiker} from '../../domain/gebruiker.domain';
 
 @Component({
   selector: 'app-opdracht.lijst',
@@ -21,6 +22,7 @@ export class OpdrachtLijstComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
+
     this.richting=1;
     this.sortMethod='id';
     this.apiService.getOpdrachten().subscribe(info => {
@@ -77,4 +79,7 @@ export class OpdrachtLijstComponent implements OnInit {
     this.opdrachten.sort(( a, b) =>(this.sortOn(a,b)));
   }
 
+  getAllowed() {
+    return window.localStorage.getItem('isAdmin')==='true';
+  }
 }

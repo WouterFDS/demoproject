@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {ApiService} from '../service/api.service';
+import {Gebruiker} from '../domain/gebruiker.domain';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,7 @@ export class LoginComponent implements OnInit {
           }
           else{
             window.localStorage.setItem('token', info.resultaat.token);
+            window.localStorage.setItem('isAdmin', info.resultaat.isAdmin);
             this.router.navigate(['lijst'])
           }
         } else {
@@ -45,7 +47,7 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['lijst'])
     }
     else {
-      window.localStorage.removeItem('token');
+
       this.loginFormulier = this.formBuilder.group({
         naam: ['', Validators.compose([Validators.required])],
         wachtwoord: ['', Validators.required]

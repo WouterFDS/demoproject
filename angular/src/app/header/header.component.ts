@@ -41,6 +41,7 @@ export class HeaderComponent implements OnInit {
 
   logOut(){
     window.localStorage.removeItem('token');
+    window.localStorage.removeItem('isAdmin');
     this.router.navigate(['login'])
   }
 

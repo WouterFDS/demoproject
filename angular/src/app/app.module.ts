@@ -10,6 +10,7 @@ import { OpdrachtCreateComponent } from './opdracht/opdracht.create/opdracht.cre
 import {ApiService} from './service/api.service';
 import {TokenInterceptor} from './core/interceptor';
 import { HeaderComponent } from './header/header.component';
+import {Gebruiker} from './domain/gebruiker.domain';
 
 @NgModule({
   declarations: [

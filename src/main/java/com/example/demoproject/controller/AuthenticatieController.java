@@ -48,7 +48,7 @@ public class AuthenticatieController {
         }
         final String tokenString = doGenerateToken(gebruiker.getNaam());
 
-        token = new AuthToken(tokenString);
+        token = new AuthToken(tokenString,gebruiker.isAdmin());
         antwoord= "gebruiker ingelogt";
         return new ApiResponse(200,antwoord,token);
 

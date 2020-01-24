@@ -6,6 +6,16 @@ public class AuthToken implements Serializable {
     private String token;
     private String username;
 
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean admin) {
+        isAdmin = admin;
+    }
+
+    private boolean isAdmin;
+
     public AuthToken(){
 
     }
@@ -15,8 +25,9 @@ public class AuthToken implements Serializable {
         this.username = username;
     }
 
-    public AuthToken(String token){
+    public AuthToken(String token, boolean isAdmin ){
         this.token = token;
+        this.isAdmin=isAdmin;
     }
 
 

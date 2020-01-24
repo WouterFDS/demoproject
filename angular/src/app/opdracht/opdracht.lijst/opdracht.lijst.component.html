@@ -15,9 +15,15 @@
   <td>{{opdracht.id}}</td>
   <td>{{opdracht.naam}}</td>
   <td>{{opdracht.belangrijkheid}}</td>
-  <td><button class="btn btn-success" (click)="wijzig(opdracht)" style="margin-left: 20px;"> Wijzig</button></td>
-  <td><button class="btn btn-success" (click)="verwijder(opdracht)" style="margin-left: 20px;"> Verwijder</button></td>
+  <div *ngIf="getAllowed()">
+    <td><button class="btn btn-success" (click)="wijzig(opdracht)" style="margin-left: 20px;"> Wijzig</button></td>
+    <td><button class="btn btn-success" (click)="verwijder(opdracht)" style="margin-left: 20px;"> Verwijder</button></td>
+  </div>
+
 </tr>
 </tbody>
 </table>
-<button class="btn btn-success" (click)="maakOpdracht()" style="margin-left: 20px;"> Maak</button>
+
+  <button class="btn btn-success" (click)="maakOpdracht()" style="margin-left: 20px;" *ngIf="getAllowed()"> Maak</button>
+
+
