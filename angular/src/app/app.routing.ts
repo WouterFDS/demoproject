@@ -1,0 +1,19 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import {LoginComponent} from './login/login.component';
+import { RouterModule, Routes } from '@angular/router';
+import {OpdrachtLijstComponent} from './opdracht/opdracht.lijst/opdracht.lijst.component';
+import {OpdrachtCreateComponent} from './opdracht/opdracht.create/opdracht.create.component';
+
+
+
+const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: '', component: LoginComponent },
+  { path: 'lijst', component: OpdrachtLijstComponent },
+  { path: 'maak', component: OpdrachtCreateComponent },
+
+
+];
+
+export const routing = RouterModule.forRoot(routes);
