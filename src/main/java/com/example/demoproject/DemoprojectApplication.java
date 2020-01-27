@@ -4,6 +4,7 @@ package com.example.demoproject;
 import com.example.demoproject.dao.GebruikerRepository;
 import com.example.demoproject.domain.Opdracht;
 import com.example.demoproject.service.impl.Facade;
+import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -25,7 +26,8 @@ public class DemoprojectApplication {
     public static void main(String[] args) {
 
         ApplicationContext ctx = SpringApplication.run(DemoprojectApplication.class, args);
-
+        //Flyway flyway = Flyway.configure().dataSource("jdbc:postgresql://localhost:5432/projectDB","Gebruiker","wachtwoord").load();
+        //flyway.migrate();
     }
 
     @Bean

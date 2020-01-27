@@ -39,7 +39,7 @@ public class OpdrachtController {
 
     @RequestMapping(value="/verwijder",method = RequestMethod.POST)
     @CrossOrigin(origins="*", maxAge=3600)
-    public ApiResponse verijderOpdracht(@RequestBody Opdracht opdracht){
+    public ApiResponse verwijderOpdracht(@RequestBody Opdracht opdracht){
         facade.verwijderOpdracht(opdracht.getId());
         return new ApiResponse(200,"de opdracht is verwijderd",facade.krijgAlleOpdrachten());
 
