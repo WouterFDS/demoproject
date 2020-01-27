@@ -48,4 +48,10 @@ public class Gebruiker {
     public void setAdmin(boolean admin) {
         isAdmin = admin;
     }
+
+    @Override
+    public boolean equals(Object O){
+        System.out.println("equals");
+        return true;
+    }
 }

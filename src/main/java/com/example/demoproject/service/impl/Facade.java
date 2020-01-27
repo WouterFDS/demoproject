@@ -27,8 +27,8 @@ public class Facade implements AuthenticatieService, OpdrachtService {
     @Autowired
     private OpdrachtRepository opdrachtRepository;
 
-    @Autowired
-    private BCryptPasswordEncoder bcryptEncoder;
+    //@Autowired
+    //private BCryptPasswordEncoder bcryptEncoder;
 
     @Override
     public Gebruiker vindGebruiker(String naam) {
@@ -39,9 +39,21 @@ public class Facade implements AuthenticatieService, OpdrachtService {
         Gebruiker gebruiker = null;
         if(gebruikerOptional.isPresent()){
             gebruiker = gebruikerOptional.get();
+            gebruiker.setNaam(naam);
+            gebruiker.setWachtwoord(gebruiker.getWachtwoord());
         }
-        gebruiker.setWachtwoord(bcryptEncoder.encode(gebruiker.getWachtwoord()));
+
         return gebruiker;
+    }
+
+    @Override
+    public Gebruiker save(Gebruiker user) {
+        System.out.println("inSave");
+        Gebruiker newUser = new Gebruiker();
+        newUser.setNaam(user.getNaam());
+        newUser.setWachtwoord(user.getWachtwoord());
+        newUser.setAdmin(user.isAdmin());
+        return gebruikerRepository.save(newUser);
     }
 
 
@@ -52,6 +64,7 @@ public class Facade implements AuthenticatieService, OpdrachtService {
         gebruikerRepository.findAll().forEach(gebruikers::add);
         return gebruikers;
     }
+
 
     /*
     @Override
@@ -66,9 +79,9 @@ public class Facade implements AuthenticatieService, OpdrachtService {
             juisteGegevens = gIndata.getWachtwoord().equals(gebruiker.getWachtwoord());
         }
         return juisteGegevens;
-    }
+    }*/
 
-     */
+
 
     @Override
     public UserDetails loadUserByUsername(String gebruikersNaam) {

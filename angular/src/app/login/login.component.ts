@@ -32,7 +32,10 @@ export class LoginComponent implements OnInit {
           }
           else{
             window.localStorage.setItem('token', info.resultaat.token);
-            window.localStorage.setItem('isAdmin', info.resultaat.isAdmin);
+            const encryptAdmin = window.btoa(info.resultaat.token+info.resultaat.isAdmin);
+
+
+            window.localStorage.setItem('isAdmin', encryptAdmin);
             this.router.navigate(['lijst'])
           }
         } else {

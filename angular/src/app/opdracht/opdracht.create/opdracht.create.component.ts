@@ -36,7 +36,7 @@ export class OpdrachtCreateComponent implements OnInit {
       this.router.navigate(['login']);
       return;
     }
-    if (window.localStorage.getItem('isAdmin')==='false') {
+    if (window.atob(window.localStorage.getItem('isAdmin')).split(window.localStorage.getItem('token'))[1]!='true') {
       this.router.navigate(['lijst']);
       return;
     }

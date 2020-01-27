@@ -13,4 +13,5 @@ public interface AuthenticatieService extends UserDetailsService {
     //public boolean login(Gebruiker gebruiker);
 
     UserDetails loadUserByUsername(String username);
+    Gebruiker save(Gebruiker gebruiker);
 }

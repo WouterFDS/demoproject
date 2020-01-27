@@ -9,9 +9,12 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
@@ -30,27 +33,36 @@ public class AuthenticatieController {
     private AuthenticationManager authenticationManager;
 
     @RequestMapping(value="",method = RequestMethod.POST)
-    public ApiResponse login(@RequestBody Gebruiker gebruiker) {
-        AuthToken token = null;
-        String antwoord = "gebruiker niet gevonden in onze database";
-        gebruiker = facade.vindGebruiker(gebruiker.getNaam());
-        UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(
-                gebruiker.getNaam(),
-                gebruiker.getWachtwoord()
-        );
-        try {
-            final Authentication authentication = authenticationManager.authenticate(
-                    upat);
-            SecurityContextHolder.getContext().setAuthentication(authentication);
-            //SecurityContextHolder.getContext().
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        final String tokenString = doGenerateToken(gebruiker.getNaam());
+    public ApiResponse login(@RequestBody Gebruiker gebruiker) throws AuthenticationException{
+            AuthToken token = null;
+            String antwoord = "gebruiker niet gevonden in onze database";
+            HttpStatus status = null;
 
-        token = new AuthToken(tokenString,gebruiker.isAdmin());
-        antwoord= "gebruiker ingelogt";
-        return new ApiResponse(200,antwoord,token);
+                UsernamePasswordAuthenticationToken upat = new UsernamePasswordAuthenticationToken(
+                        gebruiker.getNaam(),
+                        gebruiker.getWachtwoord()
+                );
+                final Authentication authentication = authenticationManager.authenticate(upat);
+                if(authentication.isAuthenticated()){
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    final String tokenString = doGenerateToken(gebruiker.getNaam());
+                    Gebruiker gebruikerIndata = facade.vindGebruiker(gebruiker.getNaam());
+                    token = new AuthToken(tokenString,gebruikerIndata.isAdmin());
+                    status = HttpStatus.OK;
+                    antwoord= "gebruiker ingelogt";
+                }
+                else{
+                    final String tokenString = doGenerateToken(gebruiker.getNaam());
+                    token = new AuthToken(tokenString,false);
+                    antwoord= "gebruikersgegevens fout";
+                    status = HttpStatus.UNAUTHORIZED;
+                }
+
+
+
+
+
+            return new ApiResponse(status.value(),antwoord,token);
 
     }
 
@@ -61,7 +73,7 @@ public class AuthenticatieController {
 
         return Jwts.builder()
                 .setClaims(claims)
-                .setIssuer("Wouter")
+                .setIssuer("WouterT")
                 .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date(System.currentTimeMillis() + Constants.ACCESS_TOKEN_VALIDITY_SECONDS*1000))
                 .signWith(SignatureAlgorithm.HS256, Constants.SIGNING_KEY)

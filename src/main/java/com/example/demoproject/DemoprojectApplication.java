@@ -19,8 +19,8 @@ import java.util.Collection;
 @SpringBootApplication
 public class DemoprojectApplication {
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+    //@Autowired
+    //private BCryptPasswordEncoder passwordEncoder;
 
     public static void main(String[] args) {
 

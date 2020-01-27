@@ -80,6 +80,6 @@ export class OpdrachtLijstComponent implements OnInit {
   }
 
   getAllowed() {
-    return window.localStorage.getItem('isAdmin')==='true';
+    return window.atob(window.localStorage.getItem('isAdmin')).split(window.localStorage.getItem('token'))[1]==='true';
   }
 }
