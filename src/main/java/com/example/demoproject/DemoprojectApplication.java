@@ -4,7 +4,7 @@ package com.example.demoproject;
 import com.example.demoproject.dao.GebruikerRepository;
 import com.example.demoproject.domain.Opdracht;
 import com.example.demoproject.service.impl.Facade;
-import org.flywaydb.core.Flyway;
+//import org.flywaydb.core.Flyway;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

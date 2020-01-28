@@ -1,0 +1,41 @@
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th >Id</th>
+    <th>Naam</th>
+    <th>Belangrijkheid</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let opdracht of opdrachten">
+    <td>{{opdracht.id}}</td>
+    <td>{{opdracht.naam}}</td>
+    <td>{{opdracht.belangrijkheid}}</td>
+    <td><button class="btn btn-success" (click)="details(opdracht)" style="margin-left: 20px;"> Details</button></td>
+  </tr>
+  </tbody>
+</table>
+
+<form [formGroup]="opdrachtFormulier" (ngSubmit)="onSubmit()" >
+
+  <div class ="form-group">
+    <label for="naam">Naam opdracht:</label>
+    <input [attr.disabled]="bewerkbaar? null:''" type="text" class="form-control" formControlName="naam" id="naam" autocomplete="off">
+    <div class="error" *ngIf="opdrachtFormulier.controls['naam'].hasError('required')&&opdrachtFormulier.controls['naam'].touched">Gelieve een naam in te vullen</div>
+  </div>
+  <div class ="form-group" >
+    <label for="belangrijkheid" >belangrijkheid:</label>
+    <input  [attr.disabled]="bewerkbaar? null:''" type="number" min="1" max="10" class="form-control" formControlName="belangrijkheid" id="belangrijkheid" autocomplete="off">
+    <div class="error" *ngIf="opdrachtFormulier.controls['belangrijkheid'].hasError('required')&&opdrachtFormulier.controls['belangrijkheid'].touched">Gelieve een belangrijkheidwaarde toe te voegen</div>
+    <div class="error" *ngIf="!(opdrachtFormulier.controls['belangrijkheid'].hasError('required'))&&opdrachtFormulier.controls['belangrijkheid'].touched&&(opdrachtFormulier.controls['belangrijkheid'].value>10||opdrachtFormulier.controls['belangrijkheid'].value<1)">Gelieve een belangrijkheidwaarde tussen 1 en 10 te kiezen</div>
+  </div>
+  <div *ngIf="getAllowed()">
+    <button class="btn btn-success" [disabled]="opdrachtFormulier.invalid||!bewerkbaar">Wijzig</button>
+    <input type="checkbox" name="vehicle1" [checked]="bewerkbaar" (click)="bewerk()" > bewerk
+  </div>
+
+
+</form>
+

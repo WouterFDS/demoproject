@@ -11,6 +11,7 @@ import {ApiService} from './service/api.service';
 import {TokenInterceptor} from './core/interceptor';
 import { HeaderComponent } from './header/header.component';
 import {Gebruiker} from './domain/gebruiker.domain';
+import { OpdrachtLijstDetailsComponent } from './opdracht/opdracht.lijst-details/opdracht.lijst-details.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {Gebruiker} from './domain/gebruiker.domain';
     OpdrachtLijstComponent,
     OpdrachtCreateComponent,
     HeaderComponent,
+    OpdrachtLijstDetailsComponent,
 
   ],
   imports: [
