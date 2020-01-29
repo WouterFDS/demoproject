@@ -4,6 +4,76 @@
 .login-container {
   display: flex;
   flex-direction: column;
-  background-color: blanchedalmond;
-  margin: 2em auto auto;
+  background-color: #eaffe7;
+  margin-left:30vw;
+  margin-top:10vh;
+  align-items: center;
+  width: 40vw;
+  height: 30vh;
+  justify-content: center;
+}
+
+
+.btn-success:enabled {
+  background-color: #2ca0ca;
+  padding:10px;
+  position:center;
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+  text-decoration:none;
+  color:#FFF;
+  border: solid 1px;
+  border-top-color: #a254e5;
+  border-bottom-color: #2ca0ca;
+  background-image: linear-gradient(bottom, rgb(44,160,202) 0%, rgb(162,84,229) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(162,84,229) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(162,84,229) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(162,84,229) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(44,160,202) 0%, rgb(162, 84, 229) 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(44,160,202)),
+    color-stop(1, rgb(162,84,229))
+  );
+  -webkit-box-shadow: inset 0px 1px 0px #a254e5, 0px 1px 0px #a254e5;
+  -moz-box-shadow: inset 0px 1px 0px #2ca0ca, 0px 1px 0px #2ca0ca;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+
+}
+
+.btn-success:disabled {
+  padding:10px;
+  position:center;
+  font-family: 'Open Sans', sans-serif;
+  font-size:12px;
+  text-decoration:none;
+  color:#000;
+  border: solid 1px;
+  border-top-color: #512a73;
+  border-bottom-color: #216a86;
+  background-image: linear-gradient(bottom, rgb(33, 106, 134) 0%, rgb(81, 42, 115) 100%);
+  background-image: -o-linear-gradient(bottom, rgb(33, 106, 134) 0%, rgb(81, 42, 115) 100%);
+  background-image: -moz-linear-gradient(bottom, rgb(33, 106, 134) 0%, rgb(81, 42, 115) 100%);
+  background-image: -webkit-linear-gradient(bottom, rgb(33, 106, 134) 0%, rgb(81, 42, 115) 100%);
+  background-image: -ms-linear-gradient(bottom, rgb(33, 106, 134) 0%, rgb(81, 42, 115) 100%);
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    color-stop(0, rgb(33, 106, 134)),
+    color-stop(1, rgb(81, 42, 115))
+  );
+  -webkit-box-shadow: inset 0px 1px 0px #512a73, 0px 1px 0px #512a73;
+  -moz-box-shadow: inset 0px 1px 0px #216a86, 0px 1px 0px #216a86;
+
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }

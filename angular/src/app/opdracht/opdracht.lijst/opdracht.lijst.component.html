@@ -1,5 +1,5 @@
 
-<table class="table table-striped">
+<table class="table table-striped" id="opdrachten">
 <thead>
 <tr>
   <th (click)="veranderSortMethod('id');updateList();" onmouseover="" style="cursor: pointer;">Id</th>
@@ -10,19 +10,22 @@
 </tr>
 </thead>
 <tbody>
+
 <tr *ngFor="let opdracht of opdrachten">
+
   <td>{{opdracht.id}}</td>
   <td>{{opdracht.naam}}</td>
   <td>{{opdracht.belangrijkheid}}</td>
   <div *ngIf="getAllowed()">
-    <td><button class="btn btn-success" (click)="wijzig(opdracht)" style="margin-left: 20px;"> Wijzig</button></td>
-    <td><button class="btn btn-success" (click)="verwijder(opdracht)" style="margin-left: 20px;"> Verwijder</button></td>
+    <td><button class="btn-log" (click)="wijzig(opdracht)" style="margin-left: 20px;"> Wijzig</button></td>
+    <td><button class="btn-log" (click)="verwijder(opdracht)" style="margin-left: 20px;"> Verwijder</button></td>
   </div>
 
+
 </tr>
+
 </tbody>
 </table>
-
-  <button class="btn btn-success" (click)="maakOpdracht()" style="margin-left: 20px;" *ngIf="getAllowed()"> Maak</button>
+<button class="btn-log" (click)="maakOpdracht()" style="margin-left: 20px;" *ngIf="getAllowed()"> Maak</button>
 
 

@@ -1,30 +1,34 @@
 package com.example.demoproject;
 
 
-import com.example.demoproject.dao.GebruikerRepository;
 import com.example.demoproject.domain.Opdracht;
 import com.example.demoproject.service.impl.Facade;
 //import org.flywaydb.core.Flyway;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.web.WebApplicationInitializer;
+import org.springframework.web.context.support.XmlWebApplicationContext;
+import org.springframework.web.servlet.DispatcherServlet;
 
+import javax.servlet.ServletContext;
+import javax.servlet.ServletException;
+import javax.servlet.ServletRegistration;
 import java.util.Collection;
 
-
 @SpringBootApplication
+@PropertySource("file:/home/wouter/IdeaProjects/demoproject/config/local/application2.properties")
 public class DemoprojectApplication {
 
     //@Autowired
     //private BCryptPasswordEncoder passwordEncoder;
 
-    public static void main(String[] args) {
 
+    public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(DemoprojectApplication.class, args);
         //Flyway flyway = Flyway.configure().dataSource("jdbc:postgresql://localhost:5432/projectDB","Gebruiker","wachtwoord").load();
         //flyway.migrate();
@@ -43,4 +47,6 @@ public class DemoprojectApplication {
 
         };
     }
+
+
 }

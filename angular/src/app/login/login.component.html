@@ -1,5 +1,5 @@
-<div class="row">
-  <div class="col-md-6 login-container">
+
+  <div class="login-container">
     <h2 style="margin: auto">Inloggen </h2>
     <form [formGroup]="loginFormulier
     " (ngSubmit)="onSubmit()">
@@ -14,13 +14,12 @@
         <input type="text" class="form-control" formControlName="wachtwoord" id="wachtwoord" autocomplete="off">
         <div class="error" *ngIf="loginFormulier.controls['wachtwoord'].hasError('required')&&loginFormulier.controls['wachtwoord'].touched">Gelieve je wachtwoord in te vullen</div>
       </div>
-      <button class="btn btn-success" [disabled]="loginFormulier.invalid">Login</button>
+      <button class="btn-success" [disabled]="loginFormulier.invalid">Login</button>
       <div *ngIf="fouteGegevens" class="error">
         <div>Incorrecte combinatie naam/wachtwoord</div>
       </div>
     </form>
   </div>
 
-</div>
 
 

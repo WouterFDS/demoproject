@@ -15,7 +15,9 @@ export class OpdrachtLijstComponent implements OnInit {
   sortMethod: string;
   richting :number;
 
-  constructor(private router: Router, private apiService: ApiService) { }
+  constructor(private router: Router, private apiService: ApiService) {
+
+  }
 
   ngOnInit() {
     if (!window.localStorage.getItem('token')) {

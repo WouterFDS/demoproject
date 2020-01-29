@@ -1,0 +1,25 @@
+#opdrachten th{
+  font-family: 'Open Sans', sans-serif;
+  color:#FFFFFF;
+  font-size:24px;
+  background-color: darkred;
+}
+
+#opdrachten td{
+  font-family: 'Open Sans', sans-serif;
+  font-size:15px;
+  background-color: darkgray;
+}
+
+#opdrachten{
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 31%;
+}
+.btn-log{
+  margin:1px;
+  background-color:#FFFFFF;
+  padding:6px;
+  position:center;
+  border: solid 1px;
+}
