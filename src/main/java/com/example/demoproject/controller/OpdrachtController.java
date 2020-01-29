@@ -26,12 +26,16 @@ public class OpdrachtController {
         if(opdracht.getId()==0){
             facade.maakOpdracht(opdracht.getNaam(),opdracht.getBelangrijkheid());
             boodschap="de opdracht is gemaakt";
-            return new ApiResponse(200,"de opdracht is gemaakt","ok");
+            return new ApiResponse(200,boodschap,"ok");
         }
         else{
+            if(facade.vindOpdracht(opdracht.getId())==null){
+                boodschap="de opdracht is al verwijderd";
+                return new ApiResponse(409,boodschap,"weg");
+            }
             facade.updateOpdracht(opdracht.getId(),opdracht.getNaam(),opdracht.getBelangrijkheid());
             boodschap="de opdracht is gewijzigd";
-            return new ApiResponse(200,"de opdracht is gewijzigd","ok");
+            return new ApiResponse(200,boodschap,"ok");
         }
 
 

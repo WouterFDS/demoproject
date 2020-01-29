@@ -61,7 +61,14 @@ export class OpdrachtCreateComponent implements OnInit {
         else{
           this.router.navigate(['lijst'])
         }
-      } else {
+      } else if(info.status === 409){
+        this.opdrachtId=0;
+        if(confirm("Opdracht is verwijderd. Wilt u hem toch toevoegen?")){
+          this.onSubmit();
+        }
+        else{
+          this.router.navigate(['lijst'])
+        }
       }
     });
   }
